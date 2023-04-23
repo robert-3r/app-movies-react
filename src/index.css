@@ -1,0 +1,221 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  background-color: #d1defa;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+}
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "nav nav nav nav"
+    "content content content lateral"
+    "footer footer footer footer ";
+  grid-template-rows: 100px 70px auto 70px;
+}
+
+.header {
+  background-color: white;
+  grid-area: header;
+  text-align: left;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  background: linear-gradient(90deg, #03228f 10%, #0e73e4 100%);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play {
+  width: 0;
+  height: 0;
+  border-left: 16px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+.nav {
+  grid-area: nav;
+  background: linear-gradient(90deg, #03228f 10%, #0e73e4 100%);
+}
+.nav > ul {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+}
+.nav li {
+  text-decoration: none;
+}
+.nav li a {
+  text-decoration: none;
+  text-decoration: none;
+  color: #fff;
+  font-weight: lighter;
+  transition: all 0.3s ease-in-out;
+}
+.nav li :hover {
+  color: #48e;
+}
+.content {
+  background: #f1f2f4;
+  grid-area: content;
+  display: flex;
+ 
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+}
+.peli-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+  margin: 20px;
+  flex-grow: 1;
+  padding: 60px 25px;
+}
+button,
+input[type="submit"],
+input[type="button"] {
+  width: 100px;
+  background: linear-gradient(160deg, #03228f 0%, #0b70ea 77%);
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.peli-item .edit {
+  margin-right: 10px;
+}
+.peli-item .edit:hover {
+  background-color: #e77b00;
+}
+.peli-item .delete:hover {
+  background-color: #9b0202;
+}
+/* edit__form */
+.edit__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+.edit__form input,
+textarea {
+  display: block;
+  border: none;
+  padding: 15px;
+  outline: none;
+  margin: 15px;
+  font-size: 18px;
+  width: 100%;
+}
+.edit__form input,
+textarea:focus {
+  border: 1px solid #48e ;
+  border-radius: 5px;
+  
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  margin-top: auto;
+  background: linear-gradient(90deg, #03228f 10%, #0e73e4 100%);
+  color: #fff;
+}
+.lateral {
+  background: #f1f2f4;
+  grid-area: lateral;
+  border-left: 1px solid #ddd;
+}
+.lateral > div {
+  width: 90%;
+  margin: 20px;
+  padding: 20px;
+  padding-top: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+}
+.lateral input[type="text"],
+.lateral input[type="text"],
+.lateral textarea {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #f6f7f9;
+  color: #454545;
+  width: 90%;
+  opacity: 4;
+  outline: none;
+  border: transparent;
+}
+/* no-encontrado */
+.no-encontrado{
+  color: red;
+  padding: 10px;
+}
+
+/* no-hay-peli */
+.no-hay-peli{
+  margin:  100px auto;
+  color: #03228f;
+}
+
+@media (max-width: 1080px) {
+  .content {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .peli-item {
+    width: 80%;
+  }
+}
+@media (max-width: 780px) {
+  .layout {
+    grid-template-areas:
+      "header header header header"
+      "nav nav nav nav"
+      "lateral lateral lateral lateral"
+      "content content content content"
+      "footer footer footer footer ";
+    grid-template-rows: 100px 70px auto auto;
+  }
+}
